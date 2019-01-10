@@ -1,6 +1,7 @@
 {
-  "name": "alba",
-  "version": "0.1.0",
+  "name": "lookingforalba",
+  "version": "0.0.1",
+  "description": "service for looking for part-time-job in jeju",
   "private": true,
   "dependencies": {
     "react": "^16.7.0",
