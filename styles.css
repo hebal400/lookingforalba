@@ -1,0 +1,11 @@
+body {
+    margin: 0;
+    padding: 0;
+    width: 360px;
+}
+
+#wrap {
+    border: 0;
+    width: 360px;
+    min-height: 500px;
+}
