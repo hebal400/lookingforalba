@@ -8,5 +8,14 @@
     },
     "permissions": [
         "activeTab"
+    ],
+    "content_scripts": [
+        {
+            "matches": [
+                "https://www.alba.co.kr/job/Detail.asp?*",
+                "http://www.alba.co.kr/job/Detail.asp?*"
+            ],
+            "js": ["parse.js"]
+        }
     ]
 }
