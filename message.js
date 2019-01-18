@@ -19,10 +19,11 @@ function whenLoaded() {
     
 }
 
-function callbackAfterLoad(parsedData) {
+function callbackAfterLoad(parsedData = null) {
     let childFrame = document.getElementById('wrap');
     let origin = window.origin;
-    let dataObject = { result: true, origin, parsedData };
+
+    let dataObject = { result: (parsedData !== null), origin, parsedData };
 
     childFrame.contentWindow.postMessage(dataObject, '*')
 }
