@@ -2,6 +2,7 @@ chrome.runtime.onMessage.addListener((msg, sender, response) => {
     if(msg.send === 'requestDataFromDOM') {
 
         let title = document.querySelector('p.detailTitle').textContent.trim(),
+            companyName = document.querySelector('p.workcomnm>strong').textContent.trim(),
             workingPeriod = document.querySelector('ul.info>li.workperiodcd>a').textContent.trim(),
             DayOfWeek = document.querySelector('ul.info>li.workweekcd>a').textContent.trim(),
             workingTime = document.querySelector('ul.info>li.worktimecd').childNodes[1].textContent.trim(),
@@ -14,6 +15,7 @@ chrome.runtime.onMessage.addListener((msg, sender, response) => {
 
         let sendData = {
             title,
+            companyName,
             workingPeriod,
             DayOfWeek,
             workingTime,

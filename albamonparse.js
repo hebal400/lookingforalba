@@ -4,9 +4,10 @@ chrome.runtime.onMessage.addListener((msg, sender, response) => {
         let infoBox = document.querySelector('div.companyInfo.infoBox');
 
         let title = infoBox.querySelector('div.recruitInfo>h1').textContent.trim(),
+            companyName = document.querySelector('span.companyName').textContent.trim(),
             workInfo = infoBox.querySelectorAll('div.viewWorkInfo.clearfix>div.item'),
             workingPeriod = workInfo[1].querySelector('div.itemInfo').textContent.trim(),
-            payType = workInfo[0].querySelector('div.circle.payMonth').textContent.trim(),
+            payType = workInfo[0].querySelector('div.circle').textContent.trim(),
             pay = workInfo[0].querySelector('div.itemInfo').textContent.trim(),
             DayOfWeek = workInfo[2].querySelector('div.itemInfo').textContent.trim(),
             workingTime = workInfo[3].querySelector('div.itemInfo').textContent.trim(),
@@ -16,6 +17,7 @@ chrome.runtime.onMessage.addListener((msg, sender, response) => {
 
         let sendData = {
             title,
+            companyName,
             workingPeriod,
             DayOfWeek,
             workingTime,

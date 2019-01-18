@@ -12,15 +12,15 @@
     "content_scripts": [
         {
             "matches": [
-                "https://www.alba.co.kr/job/Detail.asp?*",
-                "http://www.alba.co.kr/job/Detail.asp?*"
+                "https://*.alba.co.kr/job/Detail.asp?*",
+                "http://*.alba.co.kr/job/Detail.asp?*"
             ],
             "js": ["albaparse.js"]
         },
         {
             "matches": [
-                "http://www.albamon.com/recruit/view/gi?*",
-                "https://www.albamon.com/recruit/view/gi?*"
+                "http://*.albamon.com/recruit/view/gi?*",
+                "https://*.albamon.com/recruit/view/gi?*"
             ],
             "js": ["albamonparse.js"]
         }
