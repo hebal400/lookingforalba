@@ -1,6 +1,7 @@
 
 
-function whenLoaded(event) {
+function whenLoaded() {
+    
     window.addEventListener('message', (event) => {
         if(event.data !== 'requestDataFromParent') return;
 
@@ -26,4 +27,7 @@ function callbackAfterLoad(parsedData) {
     childFrame.contentWindow.postMessage(dataObject, '*')
 }
 
-window.addEventListener('DOMContentLoaded', whenLoaded);
+window.addEventListener('DOMContentLoaded', function () {
+    window.removeEventListener('DOMContentLoaded', arguments.callee, false);
+    whenLoaded();
+}, false);
