@@ -22,7 +22,7 @@ function whenLoaded() {
 function callbackAfterLoad(parsedData) {
     let childFrame = document.getElementById('wrap');
     let origin = window.origin;
-    let dataObject = { origin, parsedData };
+    let dataObject = { result: true, origin, parsedData };
 
     childFrame.contentWindow.postMessage(dataObject, '*')
 }
