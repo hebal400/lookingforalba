@@ -2,6 +2,8 @@
 
 function whenLoaded(event) {
     window.addEventListener('message', (event) => {
+        if(event.data !== 'requestDataFromParent') return;
+
         chrome.tabs.query({
             active: true,
             currentWindow: true
@@ -22,7 +24,6 @@ function callbackAfterLoad(parsedData) {
     let dataObject = { origin, parsedData };
 
     childFrame.contentWindow.postMessage(dataObject, '*')
-    console.log('test 메시지')
 }
 
 window.addEventListener('DOMContentLoaded', whenLoaded);
