@@ -15,7 +15,14 @@
                 "https://www.alba.co.kr/job/Detail.asp?*",
                 "http://www.alba.co.kr/job/Detail.asp?*"
             ],
-            "js": ["parse.js"]
+            "js": ["albaparse.js"]
+        },
+        {
+            "matches": [
+                "http://www.albamon.com/recruit/view/gi?*",
+                "https://www.albamon.com/recruit/view/gi?*"
+            ],
+            "js": ["albamonparse.js"]
         }
     ],
     "background": {
