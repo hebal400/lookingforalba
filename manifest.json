@@ -13,7 +13,8 @@
         "128": "images/logo.jpg"
     },
     "permissions": [
-        "activeTab"
+        "activeTab",
+        "tabs"
     ],
     "content_scripts": [
         {

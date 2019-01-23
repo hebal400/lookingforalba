@@ -3,18 +3,32 @@
 function whenLoaded() {
     
     window.addEventListener('message', (event) => {
-        if(event.data !== 'requestDataFromParent') return;
+        let receivedData = event.data;
 
-        chrome.tabs.query({
-            active: true,
-            currentWindow: true
-        }, tabs => {
-            chrome.tabs.sendMessage(
-                tabs[0].id,
-                { send: "requestDataFromDOM" },
-                callbackAfterLoad
-            )
-        })
+        switch(receivedData.message) {
+            case 'requestDataFromParent':
+                chrome.tabs.query({
+                    active: true,
+                    currentWindow: true
+                }, tabs => {
+                    chrome.tabs.sendMessage(
+                        tabs[0].id,
+                        { send: "requestDataFromDOM" },
+                        callbackAfterLoad
+                    )
+                })
+                break;
+            case 'requestParentOpenTab':
+                console.log("됐으");
+                let { link } = event.data;
+                chrome.tabs.create({ url: link });
+                break;
+            default:
+                return;
+        }
+        if(receivedData.message !== 'requestDataFromParent') return;
+
+        
     }, false);
     
 }
