@@ -1,5 +1,23 @@
+function sendContentScriptMessage() {
+    chrome.tabs.query({
+        active: true,
+        currentWindow: true
+    }, tabs => {
+        chrome.tabs.sendMessage(
+            tabs[0].id,
+            { send: "requestDataFromDOM" },
+            callbackAfterLoad
+        )
+    })
+}
 
+function openNewTab(uri) {
+    chrome.tabs.create({ url: link });
+}
 
+function sendNotification(text) {
+
+}
 function whenLoaded() {
     
     window.addEventListener('message', (event) => {
@@ -7,22 +25,16 @@ function whenLoaded() {
 
         switch(receivedData.message) {
             case 'requestDataFromParent':
-                chrome.tabs.query({
-                    active: true,
-                    currentWindow: true
-                }, tabs => {
-                    chrome.tabs.sendMessage(
-                        tabs[0].id,
-                        { send: "requestDataFromDOM" },
-                        callbackAfterLoad
-                    )
-                })
+                sendContentScriptMessage();
                 break;
             case 'requestParentOpenTab':
                 console.log("됐으");
                 let { link } = event.data;
-                chrome.tabs.create({ url: link });
+                openNewTab(link);
                 break;
+            case 'sendNotification':
+                let { text } = event.data;
+                sendNotification(text);
             default:
                 return;
         }
