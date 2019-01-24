@@ -11,8 +11,8 @@ function sendContentScriptMessage() {
     })
 }
 
-function openNewTab(uri) {
-    chrome.tabs.create({ url: link });
+function openNewTab(url) {
+    chrome.tabs.create({ url });
 }
 
 function sendNotification(text) {
