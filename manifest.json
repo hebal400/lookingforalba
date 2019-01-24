@@ -14,7 +14,8 @@
     },
     "permissions": [
         "activeTab",
-        "tabs"
+        "tabs",
+        "notifications"
     ],
     "content_scripts": [
         {

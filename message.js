@@ -16,7 +16,7 @@ function openNewTab(url) {
 }
 
 function sendNotification(text) {
-
+    chrome.extension.getBackgroundPage().notification(text);
 }
 function whenLoaded() {
     
@@ -28,7 +28,6 @@ function whenLoaded() {
                 sendContentScriptMessage();
                 break;
             case 'requestParentOpenTab':
-                console.log("됐으");
                 let { link } = event.data;
                 openNewTab(link);
                 break;
