@@ -3,7 +3,7 @@ function notification(text) {
         type: 'basic',
         title: '알바몬',
         message: text,
-        iconUrl: 'images/logo.jpg'
+        iconUrl: 'images/logo.png'
     })
 }
 
