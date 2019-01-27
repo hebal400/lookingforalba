@@ -1,5 +1,5 @@
 function notification(text) {
-    chrome.notifications.create('reminder', {
+    chrome.notifications.create({
         type: 'basic',
         title: '알바몬',
         message: text,
